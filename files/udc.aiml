@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml>
+
+    <category>
+        <pattern>*</pattern>
+        <template>Your answer isn't recognized, please try again. Restart the conversation by typing "Hi"</template>
+    </category>
+
+    <category>
+        <pattern>HI</pattern>
+        <template>Hello, what is your name? Type "My name is (your name)"</template>
+      </category>
+  
+    <category>
+        <pattern>MY NAME IS *</pattern>
+        <template>Ok <set name = "username"><star /></set>, I have a few questions for you. Are you a computer science student?
+            <reply>
+                <text>Yes</text>
+                <postback>CSstudent</postback>
+            </reply>
+            <reply>
+                <text>No</text>
+                <postback>notCSstudent</postback>
+            </reply>
+        </template>
+    </category>
+  
+    <!--COMPUTER SCIENCE STUDENT NOT SELECTED-->
+    <category>
+        <pattern>notCSstudent</pattern>
+        <template>I'm sorry, I can only recommend jobs for computer science students. Bye, have a good day.</template>
+    </category>  
+  
+    <!--COMPUTER SCIENCE STUDENT SELECTED-->
+    <category>
+        <pattern>CSstudent</pattern>
+        <template>Great, now onto your interests... What interests you the most?
+            <carousel>
+                <card>
+                    <image>https://images.pexels.com/photos/614117/pexels-photo-614117.jpeg</image>
+                    <title>Coding</title>
+                    <subtitle>Does coding interest you?</subtitle>
+                    <button>
+                        <text>Yes!</text>
+                        <postback>coding</postback>
+                    </button>
+                </card>
+                <card>
+                    <image>https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg</image>
+                    <title>Cybersecurity</title>
+                    <subtitle>Create secure networks and protect companies against hackers!</subtitle>
+                    <button>
+                        <text>I want to do that!</text>
+                        <postback>cybersecurity</postback>
+                    </button>
+                </card>
+            </carousel>
+        </template>
+    </category>
+  
+    <!--CODING SELECTED-->
+    <category>
+        <pattern>coding</pattern>
+        <template>
+            What interests you most? 
+            <button>
+                <text>Designing Websites</text>
+                <postback>frontend</postback>
+            </button>
+            <button>
+                <text>Creating Software</text>
+                <postback>backend</postback>
+            </button>
+            <button>
+                <text>Working with Big Data</text>
+                <postback>datascientist</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>frontend</pattern>
+        <template>The best career for you is in Front End Devlopment
+            <link>
+                <text>Click on me to learn more!</text>
+                <url>https://www.freecodecamp.org/news/front-end-developer-what-is-front-end-development-explained-in-plain-english/</url>
+            </link>
+        </template>
+    </category>
+    <category>
+        <pattern>backend</pattern>
+        <template>The best career for you is in Back End Development
+            <link>
+                <text>Click on me to learn more!</text>
+                <url>https://www.techslang.com/definition/what-is-backend-development/</url>
+            </link>
+        </template>
+    </category>
+    <category>
+        <pattern>datascientist</pattern>
+        <template>The best career for you is in Data Science
+            <link>
+                <text>Click on me to learn more!</text>
+                <url>https://www.oracle.com/data-science/what-is-data-science/</url>
+            </link>
+        </template>
+    </category>
+    
+    
+    <!--CYBER SECURITY SELECTED-->
+    <category>
+        <pattern>cybersecurity</pattern>
+        <template>
+            What interests you the most
+            <button>
+                <text>Monitoring network traffic to detect breaches</text>
+                <postback>securityanalyst</postback>
+            </button>
+            <button>
+                <text>Design and implement security architecture</text>
+                <postback>securityengineer</postback>
+            </button>
+        </template>
+    </category>
+    
+    <category>
+        <pattern>securityanalyst</pattern>
+        <template>A career as a Cybersecurity Analyst is for you
+            <link>
+                <text>Click on me to learn more!</text>
+                <url>https://www.wgu.edu/career-guide/information-technology/cybersecurity-analyst-career.html</url>
+            </link>
+        </template>
+    </category>
+    <category>
+        <pattern>securityengineer</pattern>
+        <template>A career as a Security Engineer is for you
+            <link>
+                <text>Click on me to learn more!</text>
+                <url>https://www.careerexplorer.com/careers/security-engineer/</url>
+            </link>
+        </template>
+    </category>
+</aiml>
